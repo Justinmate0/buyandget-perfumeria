@@ -43,10 +43,10 @@ export default async function ProductRail({
           </InteractiveLink>
         </div>
       </Reveal>
-      <ul className="grid grid-cols-2 gap-x-6 gap-y-12 small:grid-cols-3">
+      <ul className="grid grid-cols-2 items-stretch gap-x-6 gap-y-12 small:grid-cols-3">
         {pricedProducts &&
           pricedProducts.map((product) => (
-            <li key={product.id}>
+            <li key={product.id} className="h-full">
               <ProductPreview product={product} region={region} isFeatured />
             </li>
           ))}

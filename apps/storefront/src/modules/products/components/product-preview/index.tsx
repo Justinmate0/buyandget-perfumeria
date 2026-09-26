@@ -29,25 +29,34 @@ export default async function ProductPreview({
   })
 
   return (
-    <Reveal>
-      <LocalizedClientLink href={`/products/${product.handle}`} className="group block">
-        <div data-testid="product-wrapper">
+    <Reveal className="h-full">
+      <LocalizedClientLink
+        href={`/products/${product.handle}`}
+        className="group flex h-full flex-col"
+      >
+        <div data-testid="product-wrapper" className="flex h-full flex-col">
           <Thumbnail
             thumbnail={product.thumbnail}
             images={product.images}
             size="full"
             isFeatured={isFeatured}
             alt={product.title ? `Frasco de ${product.title}` : "Frasco de perfume"}
+            className="shrink-0"
           />
-          <div className="mt-4 flex flex-col gap-1">
+          <div className="mt-4 flex flex-1 flex-col">
             <Text
-              className="font-display text-xl text-ink"
+              className="line-clamp-2 min-h-14 font-display text-xl leading-7 text-ink"
               data-testid="product-title"
             >
               {product.title}
             </Text>
-            <div className="flex items-center gap-x-2">
+            <div className="mt-2 flex min-h-6 items-center gap-x-2">
               {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
+            </div>
+            <div className="mt-auto pt-4">
+              <span className="inline-flex h-10 w-full items-center justify-center bg-ink text-sm font-medium tracking-wide text-ivory">
+                Comprar
+              </span>
             </div>
           </div>
         </div>
